@@ -1,0 +1,43 @@
+
+
+
+
+CREATE TABLE client (prénom VARCHAR(50), client_id INTEGER PRIMARY KEY AUTOINCREMENT);
+INSERT INTO client (prénom) VALUES ("michel");
+INSERT INTO client (prénom) VALUES ("jean-baptise");
+INSERT INTO client (prénom) VALUES ("Jeanne");
+INSERT INTO client (prénom) VALUES ("Amelie");
+INSERT INTO client (prénom) VALUES ("Victor");
+INSERT INTO client (prénom) VALUES ("Alexandre");
+
+CREATE TABLE category (type VARCHAR(50), type_id INTEGER PRIMARY KEY AUTOINCREMENT);
+INSERT INTO category (type) VALUES ("Canapé");
+INSERT INTO category (type) VALUES ("Téléphone");
+INSERT INTO category (type) VALUES ("Fauteuil");
+
+CREATE TABLE product (prod_id INTEGER PRIMARY KEY AUTOINCREMENT, prod_name VARCHAR(50), prod_price INTEGER, type_id INTEGER, FOREIGN KEY (type_id) REFERENCES category (type_id) ) ;
+INSERT INTO product (prod_name, prod_price, type_id) VALUES ("CanapeA", 10, 1);
+INSERT INTO product (prod_name, prod_price, type_id) VALUES ("CanapeB", 20, 1);
+INSERT INTO product (prod_name, prod_price, type_id) VALUES ("TelephoneA", 30, 2);
+INSERT INTO product (prod_name, prod_price, type_id) VALUES ("TelephoneB", 40, 2);
+INSERT INTO product (prod_name, prod_price, type_id) VALUES ("FauteuilA", 50, 3);
+INSERT INTO product (prod_name, prod_price, type_id) VALUES ("FauteuilB", 60, 3);
+
+CREATE TABLE assoc (client_id INTEGER PRIMARY KEY AUTOINCREMENT, prod_id INTEGER, FOREIGN KEY (prod_id) REFERENCES product(prod_id), FOREIGN KEY (client_id) REFERENCES client(client_id) );
+INSERT INTO assoc (prod_id) VALUES (2);
+INSERT INTO assoc (prod_id) VALUES (5);
+INSERT INTO assoc (prod_id) VALUES (3);
+INSERT INTO assoc (prod_id) VALUES (4);
+INSERT INTO assoc (prod_id) VALUES (5);
+INSERT INTO assoc (prod_id) VALUES (6);
+INSERT INTO assoc (prod_id) VALUES (1);
+INSERT INTO assoc (prod_id) VALUES (6);
+INSERT INTO assoc (prod_id) VALUES (5);
+
+
+
+
+
+
+
+
